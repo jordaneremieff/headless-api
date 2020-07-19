@@ -14,6 +14,8 @@ Live: https://headless-api.eremieff.com/
 
 You can play around with the generated API docs in the testing deployment docs to see how it works.
 
+<img src="https://raw.githubusercontent.com/jordaneremieff/headless-api/main/docs/example.png" alt='Headless API example'>
+
 ## Serverless deployment
 
 You'll need to modify the `serverless.yml` file and change occurences of `headless-api` in your project. I've only confirmed this working with 3.7 and have not tested other configurations.
