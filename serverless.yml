@@ -1,0 +1,54 @@
+service: headless-api
+
+provider:
+  name: aws
+  runtime: python3.7
+  region: ap-southeast-1
+  logs:
+    httpApi: true
+  environment:
+    S3_BUCKET_NAME: headless-api-uploads
+    CHROME_BINARY_PATH: /var/task/src/bin/headless-chromium
+    CHROME_DRIVER_PATH: /var/task/src/bin/chromedriver
+
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - s3:GetObject
+        - s3:PutObject
+      Resource: 'arn:aws:s3:::headless-api-uploads/*'
+
+functions:
+  app:
+    handler: src.asgi.handler
+    timeout: 20
+    memorySize: 1536
+    events:
+      - httpApi: "*"
+
+package:
+  exclude:
+    - node_modules/**
+    - venv/**
+    - .direnv/**
+    - .mypy_cache/**
+    - .pytest_cache/**
+
+custom:
+  pythonRequirements:
+    dockerizePip: true
+    strip: false
+    slim: true
+    slimPatterns:
+      - '**/*.py[c|o]'
+      - '**/__pycache__*'
+
+resources:
+  Resources:
+    HeadlessAPIUploads:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: headless-api-uploads
+
+plugins:
+  - serverless-python-requirements

@@ -1,0 +1,5 @@
+fastapi
+boto3
+Pillow
+selenium
+mangum==0.10.0b1
