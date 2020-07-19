@@ -14,7 +14,7 @@ Live: https://headless-api.eremieff.com/
 
 You can play around with the generated API docs in the testing deployment docs to see how it works.
 
-<img src="https://raw.githubusercontent.com/jordaneremieff/headless-api/main/assets/example.png" alt='Headless API example'>
+<img src="https://github.com/jordaneremieff/headless-api/blob/main/assets/example.png?raw=true" alt='Headless API example'>
 
 
 
