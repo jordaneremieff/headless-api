@@ -50,4 +50,4 @@ python -m src.asgi
 
 - It is currently not possible to screenshot all of the content on a page if the page height is greater than the window height size.
 
-- Some sites (e.g. GitHub) are able to detect something off about the request (an unsupported browser banner is returned in the response).
+- Some sites are likely able to detect the automated request and/or some other issues. For example, GitHub which displays "an unsupported browser" banner in a screenshot (only in the deployment). Not sure if this is related to the binaries or something else.
